@@ -11,11 +11,8 @@ public class EV3 {
 
     public EV3(Connector connector) {
         this.connector = connector;
-        this.packetManager = new PacketManager(connector);
-    }
 
-    public LightSensor getLightSensor(int port) {
-        return null;
+        this.packetManager = new PacketManager(connector);
     }
 
     public void soundTone(int volume, int freq, int duration) {
