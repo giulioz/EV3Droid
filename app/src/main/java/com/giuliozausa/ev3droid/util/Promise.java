@@ -2,7 +2,7 @@ package com.giuliozausa.ev3droid.util;
 
 public class Promise<T> {
     public int sequenceCounter;
-    private Handler handler;
+    private Handler<T> handler;
     private T data;
 
     public Promise() {
@@ -17,7 +17,7 @@ public class Promise<T> {
         this.data = null;
     }
 
-    public void setHandler(Handler handler) {
+    public void setHandler(Handler<T> handler) {
         this.handler = handler;
 
         if (data != null) {
