@@ -4,15 +4,15 @@ public class DirectCommandReply {
     private int length;
     private int counter;
     private boolean error;
-    private int[] data;
+    private byte[] data;
 
     public static DirectCommandReply fromBytes(byte[] bytes) {
         DirectCommandReply reply = new DirectCommandReply();
 
         reply.length = ((bytes[0] & 0xff) << 8) | (bytes[1] & 0xff);
         reply.counter = ((bytes[2] & 0xff) << 8) | (bytes[3] & 0xff);
-        reply.error = bytes[4] == 0x02;
-        reply.data = new int[reply.length - 3];
+        reply.error = bytes[4] == Constants.DIRECT_COMMAND_SUCCESS;
+        reply.data = new byte[reply.length - 3];
         System.arraycopy(bytes, 5, reply.data, 0, reply.data.length);
 
         return reply;
@@ -30,7 +30,7 @@ public class DirectCommandReply {
         return error;
     }
 
-    public int[] getData() {
+    public byte[] getData() {
         return data;
     }
 }

@@ -1,17 +1,17 @@
 package com.giuliozausa.ev3droid.sensors;
 
-import com.giuliozausa.ev3droid.lowlevel.Connector;
+import com.giuliozausa.ev3droid.lowlevel.PacketManager;
 
 public abstract class BaseSensor<TMode> {
-    protected String port;
+    protected int port;
     protected TMode currentMode;
 
-    protected BaseSensor(String port, TMode startMode) {
+    protected BaseSensor(int port, TMode startMode) {
         this.port = port;
         this.currentMode = startMode;
     }
 
-    protected void requestData(Connector connector) {
-
+    protected void requestData(PacketManager manager) {
+//        manager.sendPacketAsync()
     }
 }

@@ -3,7 +3,7 @@ package com.giuliozausa.ev3droid.sensors.light;
 import com.giuliozausa.ev3droid.sensors.BaseSensor;
 
 public class LightSensor extends BaseSensor<LightSensorModes> {
-    public LightSensor(String port) {
+    public LightSensor(int port) {
         super(port, LightSensorModes.REFLECTIVE);
     }
 
